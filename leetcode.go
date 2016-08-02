@@ -1,6 +1,7 @@
 package leetcode
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -222,4 +223,50 @@ func convert(s string, numRows int) string {
 		}
 	}
 	return string(res)
+}
+
+//problem8
+func myAtoi(str string) int {
+	bs := []byte(str)
+	var res int64
+	var step int64 = 1
+	var tmpres int64
+	for i := len(bs) - 1; i >= 0; i-- {
+		fmt.Println(bs[i], tmpres)
+		if bs[i] >= '0' && bs[i] <= '9' {
+			tmpres += (int64(bs[i]) - int64('0')) * step
+			step *= 10
+		} else if bs[i] == '+' {
+			res = tmpres
+			tmpres = 0
+			step = 1
+		} else if bs[i] == ' ' {
+			if tmpres != 0 {
+				res = tmpres
+			}
+			tmpres = 0
+			step = 1
+		} else if bs[i] == '-' {
+			res = tmpres * -1
+			tmpres = 0
+			step = 1
+		} else if bs[i] == '.' {
+			tmpres = 0
+			step = 1
+		} else {
+			tmpres = 0
+			step = 1
+		}
+	}
+
+	if tmpres != 0 {
+		res = tmpres
+	}
+	fmt.Println(int64(res))
+	if res > 2147483647 {
+		return 2147483647
+	} else if res < -2147483648 {
+		return -2147483648
+	}
+	return int(res)
 }
