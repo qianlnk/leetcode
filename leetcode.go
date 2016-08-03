@@ -227,46 +227,97 @@ func convert(s string, numRows int) string {
 
 //problem8
 func myAtoi(str string) int {
-	bs := []byte(str)
+	const (
+		MAX_INT = 2147483647
+		MIN_INT = -2147483648
+	)
+	bs := []byte(strings.Trim(str, " "))
 	var res int64
-	var step int64 = 1
+	var sign int64 = 1
 	var tmpres int64
-	for i := len(bs) - 1; i >= 0; i-- {
-		fmt.Println(bs[i], tmpres)
+	for i := 0; i < len(bs); i++ {
 		if bs[i] >= '0' && bs[i] <= '9' {
-			tmpres += (int64(bs[i]) - int64('0')) * step
-			step *= 10
-		} else if bs[i] == '+' {
-			res = tmpres
-			tmpres = 0
-			step = 1
-		} else if bs[i] == ' ' {
-			if tmpres != 0 {
-				res = tmpres
+			tmpres *= 10
+			tmpres += (int64(bs[i]) - int64('0'))
+
+			if tmpres > MAX_INT {
+				break
 			}
-			tmpres = 0
-			step = 1
-		} else if bs[i] == '-' {
-			res = tmpres * -1
-			tmpres = 0
-			step = 1
-		} else if bs[i] == '.' {
-			tmpres = 0
-			step = 1
+		} else if bs[i] == '+' && i == 0 {
+			sign = 1
+		} else if bs[i] == '-' && i == 0 {
+			sign = -1
 		} else {
-			tmpres = 0
-			step = 1
+			break
 		}
 	}
-
-	if tmpres != 0 {
-		res = tmpres
-	}
-	fmt.Println(int64(res))
-	if res > 2147483647 {
-		return 2147483647
-	} else if res < -2147483648 {
-		return -2147483648
+	res = tmpres * sign
+	if res > MAX_INT {
+		return MAX_INT
+	} else if res < MIN_INT {
+		return MIN_INT
 	}
 	return int(res)
+}
+
+//problem9
+func isPalindrome(x int) bool {
+	if x < 0 {
+		return false
+	}
+	tmp := x
+	var n int
+
+	for tmp != 0 {
+		n = n*10 + tmp%10
+		tmp = tmp / 10
+	}
+
+	return x == n
+}
+
+//problem10
+func isMatch(s string, p string) bool {
+	if p == "" {
+		return s == ""
+	}
+	bp := []byte(p)
+	bs := []byte(s)
+	bp = append(bp, 0)
+	bs = append(bs, 0)
+	if bp[1] != '*' {
+		if bp[0] == '*' {
+			return false
+		}
+		return ((bp[0] == bs[0]) || (bp[0] == '.' && bs[0] != 0)) && isMatch(string(bs[1:len(bs)-1]), string(bp[1:len(bp)-1]))
+	}
+
+	for (bp[0] == bs[0]) || (bp[0] == '.' && bs[0] != 0) {
+		if isMatch(string(bs[:len(bs)-1]), string(bp[2:len(bp)-1])) {
+			return true
+		}
+		bs = bs[1:]
+	}
+
+	return isMatch(string(bs[:len(bs)-1]), string(bp[2:len(bp)-1]))
+}
+
+//problem11
+func maxArea(height []int) int {
+	var res int
+	for i := 0; i < len(height)-1; i++ {
+		for j := i + 1; j < len(height); j++ {
+			var area int
+			if height[i] > height[j] {
+				area = height[j] * (j - i)
+			} else {
+				area = height[i] * (j - i)
+			}
+
+			if area > res {
+				res = area
+			}
+		}
+	}
+	return res
 }
