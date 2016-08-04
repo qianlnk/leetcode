@@ -52,3 +52,54 @@ func TestMyAtoi(t *testing.T) {
 func TestIsMatch(t *testing.T) {
 	fmt.Println(isMatch("aava", "*.*a"))
 }
+
+func TestRomanToInt(t *testing.T) {
+	fmt.Println(romanToInt(intToRoman(2217)))
+}
+
+func TestLongestCommonPrefix(t *testing.T) {
+	strs := []string{"asd", "asfe", "as", "a"}
+	fmt.Println(longestCommonPrefix(strs))
+}
+
+func TestThreeSum(t *testing.T) {
+	s := []int{-1, 0, 1, 2, -1, -4, 2}
+	fmt.Println(threeSum(s))
+}
+
+func TestThreeSumClosest(t *testing.T) {
+	s := []int{0, 0, 0}
+	fmt.Println(threeSumClosest(s, 1))
+}
+
+func TestLetterCombinations(t *testing.T) {
+	fmt.Println(letterCombinations("2345"))
+}
+
+func TestFourSum(t *testing.T) {
+	s := []int{-1, 0, 1, 2, -1, -4, 2}
+	fmt.Println(fourSum(s, 0))
+}
+
+func TestRemoveNthFromEnd(t *testing.T) {
+	head := &ListNode{
+		Val: 1,
+		Next: &ListNode{
+			Val: 2,
+			Next: &ListNode{
+				Val: 3,
+				Next: &ListNode{
+					Val:  4,
+					Next: nil,
+				},
+			},
+		},
+	}
+
+	res := removeNthFromEnd(head, -1)
+	tmpres := res
+	for tmpres != nil {
+		fmt.Println(tmpres.Val)
+		tmpres = tmpres.Next
+	}
+}
