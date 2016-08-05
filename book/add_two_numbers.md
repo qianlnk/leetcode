@@ -1,7 +1,4 @@
-# Add Two Numbers  QuestionEditorial Solution  My Submissions
-	Total Accepted: 164304
-	Total Submissions: 674803
-	Difficulty: Medium
+# Add Two Numbers
 	You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
 
 	Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
