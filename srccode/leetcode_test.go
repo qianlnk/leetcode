@@ -103,3 +103,7 @@ func TestRemoveNthFromEnd(t *testing.T) {
 		tmpres = tmpres.Next
 	}
 }
+
+func TestIsValid(t *testing.T) {
+	fmt.Println(isValid("123[{}([(11)])]23{}dsf"))
+}

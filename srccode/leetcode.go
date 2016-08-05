@@ -610,8 +610,3 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	}
 	return head
 }
-
-func isValid(s string) bool {
-	brackets := []string{"(", ")", "[", "]", "{", "}"}
-
-}
