@@ -34,4 +34,8 @@ func twoSum(nums []int, target int) []int {
 }
 ```
 
-                                        [下一頁](https://github.com/qianlnk/leetcode/blob/master/book/add_two_numbers.md)
+----------
+
+
+上 一 題|[下 一 題](https://github.com/qianlnk/leetcode/blob/master/book/add_two_numbers.md "add two numbers")
+:------------: | :-----------:
