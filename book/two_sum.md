@@ -1,6 +1,4 @@
-目錄|內容
-:--------|:--------
-[Two Sum](two_sum.md)| Two Sum
+# Two Sum
 	Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
 	You may assume that each input would have exactly one solution.
@@ -14,12 +12,12 @@
 # 題目大意：
 	給定一個整型數組和一個數字，返回數組中兩個相加等於給定數字的兩個數的下標。
 	
-# 思路1
+# 思路:
 	數組第一個數字和第二、三、四...相加如果等於target就return
 	數組第二個數字和第三、四、五...相加
 	...
 	
-# 代碼
+# 代碼:
 ```golang
 func twoSum(nums []int, target int) []int {
 	for i, a := range nums {
@@ -37,5 +35,5 @@ func twoSum(nums []int, target int) []int {
 ```
 
 
-上 一 題|[下 一 題](https://github.com/qianlnk/leetcode/blob/master/book/add_two_numbers.md "add two numbers")
-:------------: | :-----------:
+上 一 題|[目錄](https://github.com/qianlnk/leetcode/blob/master/README.md)|[下 一 題](https://github.com/qianlnk/leetcode/blob/master/book/add_two_numbers.md "add two numbers")
+:------------: |:----------:| :-----------:
