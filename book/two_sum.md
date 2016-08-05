@@ -1,7 +1,4 @@
-# Two Sum  QuestionEditorial Solution  My Submissions
-	Total Accepted: 268340
-	Total Submissions: 1060754
-	Difficulty: Easy
+# Two Sum
 	Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
 	You may assume that each input would have exactly one solution.
@@ -37,4 +34,4 @@ func twoSum(nums []int, target int) []int {
 }
 ```
 
-[下一頁](https://github.com/qianlnk/leetcode/blob/master/book/add_two_numbers.md)
+                                        [下一頁](https://github.com/qianlnk/leetcode/blob/master/book/add_two_numbers.md)
