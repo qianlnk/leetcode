@@ -1,4 +1,8 @@
-# leetcode in go
+# 目錄
+* [前言](##前言)
+* [Two Sum](https://github.com/qianlnk/leetcode/blob/master/book/two_sum.md)
+
+## 前言
 這是用golang實現leetcode的一些題目，被鎖的目前沒有購買想法.
 
 最近突然對刷題挺感興趣，這裡寫下一些做題思路及心得。
