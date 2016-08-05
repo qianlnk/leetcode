@@ -1,6 +1,7 @@
 package leetcode
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -222,4 +223,34 @@ func convert(s string, numRows int) string {
 		}
 	}
 	return string(res)
+}
+
+//problem7 i think the system give answer has bug
+func reverse(x int) int {
+	res := 0
+	step := 1
+	for i := 1; i < len(fmt.Sprintf("%d", x)); i++ {
+		step *= 10
+	}
+	if x < 0 {
+		step /= 10
+	}
+	for x != 0 {
+		res += (x % 10) * step
+		x /= 10
+		step /= 10
+	}
+	if res > 2147483647 || res < -2147483648 {
+		return 0
+	}
+	return res
+}
+
+//problem8
+func myAtoi(str string) int {
+	res := 0
+	bs := []byte(str)
+	for i := len(bs) - 1; i >= 0; i-- {
+
+	}
 }
