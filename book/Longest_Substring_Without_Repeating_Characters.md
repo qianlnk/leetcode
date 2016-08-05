@@ -11,16 +11,36 @@
 
 	
 # 題目大意：
-
+	給定一個字符串，找出沒有重複字符的最長子串。
 	
 # 思路:
-
+	定一個臨時字符串，一個一個字符判斷是否在該字符串內，如果不在，則將該字符加入臨時字符串，這樣循環求字符串後比較各自長度即可。
 	
 # 代碼:
 ```golang
+func lengthOfLongestSubstring(s string) int {
+	length := 0
+	bs := []byte(s)
+	for offset := 0; offset < len(bs); offset++ {
+		var tmpbs []byte
+		tmplen := 0
+		for i := offset; i < len(bs); i++ {
+			if strings.Contains(string(tmpbs), string(bs[i])) == false {
+				tmplen++
+				tmpbs = append(tmpbs, bs[i])
+			} else {
+				break
+			}
+		}
 
+		if tmplen > length {
+			length = tmplen
+		}
+	}
+	return length
+}
 ```
 
 
-[上 一 題](https://github.com/qianlnk/leetcode/blob/master/book/add_two_numbers.md "Add Two Numbers")|[目錄](https://github.com/qianlnk/leetcode/blob/master/README.md)|[下 一 題](https://github.com/qianlnk/leetcode/blob/master/book/add_two_numbers.md "Add Two Numbers")
+[上 一 題](https://github.com/qianlnk/leetcode/blob/master/book/add_two_numbers.md "Add Two Numbers")|[目錄](https://github.com/qianlnk/leetcode/blob/master/README.md)|[下 一 題](https://github.com/qianlnk/leetcode/blob/master/book/Median_of_Two_Sorted_Arrays.md "Median of Two Sorted Arrays")
 :------------: |:----------:| :-----------:
